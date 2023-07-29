@@ -56,6 +56,7 @@ impl Handler {
         let rdata: Option<RData> = match record_type {
             RecordType::A => Some(RData::A(Ipv4Addr::from_str(value).unwrap())),
             RecordType::AAAA => Some(RData::AAAA(Ipv6Addr::from_str(value).unwrap())),
+            RecordType::CAA => Some(RData::CAA(util::caa_from_string(value).unwrap())),
             RecordType::CNAME => Some(RData::CNAME(Name::from_str_relaxed(value).unwrap())),
             RecordType::MX => Some(RData::MX(MX::new(
                 preference.expect("Should have preference with MX record"),

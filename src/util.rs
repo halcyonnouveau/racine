@@ -1,5 +1,30 @@
 use trust_dns_resolver::Name;
-use trust_dns_server::client::rr::{rdata::SOA, rdata::SRV};
+use trust_dns_server::client::rr::{rdata::caa::Property, rdata::CAA, rdata::SOA, rdata::SRV};
+use url::Url;
+
+/// Example:
+/// 0 issue "ca.example.net"
+pub fn caa_from_string(input: &str) -> Option<CAA> {
+    let mut parts = input.split_whitespace();
+    let issuer_critical = parts.next()?.to_string() == "1";
+    let tag = Property::from(parts.next()?.to_string());
+    let value = parts.next()?;
+
+    match tag {
+        Property::Issue => Some(CAA::new_issue(
+            issuer_critical,
+            Some(Name::from_str_relaxed(value.to_string()).unwrap()),
+            Vec::new(),
+        )),
+        Property::IssueWild => Some(CAA::new_issuewild(
+            issuer_critical,
+            Some(Name::from_str_relaxed(value.to_string()).unwrap()),
+            Vec::new(),
+        )),
+        Property::Iodef => Some(CAA::new_iodef(issuer_critical, Url::parse(value).unwrap())),
+        _ => None,
+    }
+}
 
 pub fn soa_from_string(input: &str) -> Option<SOA> {
     let mut parts = input.split_whitespace();

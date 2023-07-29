@@ -708,6 +708,7 @@ dependencies = [
  "tracing-subscriber",
  "trust-dns-resolver",
  "trust-dns-server",
+ "url",
 ]
 
 [[package]]
