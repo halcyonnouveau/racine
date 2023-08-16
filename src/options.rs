@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use trust_dns_server::client::rr::RecordType;
 
 #[derive(Parser, Clone, Debug)]
+#[command(author, version, about, long_about=None)]
 pub struct Cli {
     /// Path of YAML config file
     #[clap(long, short)]
