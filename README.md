@@ -4,7 +4,19 @@ A basic DNS server with geo-lookup for multi-region routing.
 
 ## Getting Started
 
-> **NOTE:** `racine` requires the GeoLite2 Country database from MaxMind. For more information and to sign up for the download, [go here.](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)
+> **NOTE:** `racine` requires the GeoLite2 Country database from MaxMind. For more information and to sign up for the download, [go here](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data).
+
+### Installing
+
+Download the latest binary from the [releases page](https://github.com/halcyonnouveau/racine/releases).
+
+Or install it with `cargo`.
+
+```bash
+cargo install racine
+```
+
+### Usage
 
 Create a YAML configuration file with your records:
 
