@@ -52,14 +52,18 @@ pub struct Config {
     #[serde(default = "udp_default")]
     pub udp: Vec<String>,
     /// TCP sockets to listen on.
-    #[serde(default = "empty_vec")]
+    #[serde(default = "tcp_default")]
     pub tcp: Vec<String>,
     /// Records
     pub records: Vec<Record>,
 }
 
 fn udp_default() -> Vec<String> {
-    vec![String::from("0.0.0.0:1053")]
+    vec![String::from("0.0.0.0:53")]
+}
+
+fn tcp_default() -> Vec<String> {
+    vec![String::from("0.0.0.0:53")]
 }
 
 fn ttl_default() -> u32 {

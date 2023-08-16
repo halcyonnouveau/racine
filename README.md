@@ -1,6 +1,6 @@
 # racine
 
-An elementary DNS server with geo-lookup for multi-region routing.
+A basic DNS server with geo-lookup for multi-region routing.
 
 ## Getting Started
 
