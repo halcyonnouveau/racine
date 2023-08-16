@@ -35,7 +35,7 @@ pub struct Handler {
 impl Handler {
     /// Create new handler
     pub fn new(cli: &Cli, options: &Config) -> Self {
-        let reader = maxminddb::Reader::open_readfile(&cli.maxmind)
+        let reader = maxminddb::Reader::open_readfile(&cli.mmdb)
             .expect("Could not open MaxMind DB database file");
 
         Handler {

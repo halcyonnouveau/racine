@@ -10,7 +10,7 @@ pub struct Cli {
     pub config: String,
     /// Path of MaxMind DB country database file
     #[clap(long, short)]
-    pub maxmind: String,
+    pub mmdb: String,
     /// Always use this IP address for geolocation
     #[clap(long, short)]
     pub use_ip: Option<String>,

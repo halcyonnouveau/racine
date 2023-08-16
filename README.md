@@ -10,7 +10,7 @@ A basic DNS server with geo-lookup for multi-region routing.
 
 Download the latest binary from the [releases page](https://github.com/halcyonnouveau/racine/releases).
 
-Or install it with `cargo`.
+Or install `racine` with `cargo`.
 
 ```bash
 cargo install racine
@@ -41,5 +41,5 @@ records:
 Run `racine` with:
 
 ```bash
-racine --config /path/to/config.yaml --maxmind /path/to/geolite.mmdb
+racine --config /path/to/config.yaml --mmdb /path/to/geolite.mmdb
 ```
