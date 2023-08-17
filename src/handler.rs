@@ -19,8 +19,6 @@ pub enum Error {
     InvalidOpCode(OpCode),
     #[error("Invalid MessageType {0:}")]
     InvalidMessageType(MessageType),
-    #[error("Invalid Zone {0:}")]
-    InvalidZone(LowerName),
     #[error("IO error: {0:}")]
     Io(#[from] std::io::Error),
 }
@@ -159,11 +157,6 @@ impl Handler {
                 }
             })
             .collect();
-
-        // no records - invalid zone
-        if records.is_empty() {
-            return Err(Error::InvalidZone(request_name.clone()));
-        }
 
         let builder = MessageResponseBuilder::from_message_request(request);
         let mut header = Header::response_from_request(request.header());
