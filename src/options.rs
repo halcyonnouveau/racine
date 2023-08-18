@@ -60,11 +60,11 @@ pub struct Config {
 }
 
 fn udp_default() -> Vec<String> {
-    vec![String::from("0.0.0.0:53")]
+    vec![String::from("0.0.0.0:53"), String::from("[::]:53")]
 }
 
 fn tcp_default() -> Vec<String> {
-    vec![String::from("0.0.0.0:53")]
+    vec![String::from("0.0.0.0:53"), String::from("[::]:53")]
 }
 
 fn ttl_default() -> u32 {

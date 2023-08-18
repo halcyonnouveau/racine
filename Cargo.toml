@@ -1,13 +1,13 @@
 [package]
 name = "racine"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "A basic DNS server with geo-lookup for multi-region routing."
 authors = ["Justin Duch <justin@duch.me>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/halcyonnouveau/racine"
-keywords = ["dns", "maxmind"]
+keywords = ["dns", "maxmind", "dns-server"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
