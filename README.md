@@ -1,5 +1,7 @@
 # racine
 
+[![crates](https://badgers.space/crates/version/racine)](https://crates.io/crates/racine)
+
 A basic DNS server with geo-lookup for multi-region routing.
 
 ## Getting Started
