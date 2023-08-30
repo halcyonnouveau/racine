@@ -96,9 +96,15 @@ impl Handler {
         };
 
         let request_name = request.query().name();
-        let country: geoip2::City = self.reader.lookup(request_ip).unwrap();
-        let continent_code = country.continent.and_then(|c| c.code).unwrap_or("");
-        let country_code = country.country.and_then(|c| c.iso_code).unwrap_or("");
+        let (mut continent_code, mut country_code) = ("", "");
+
+        match self.reader.lookup::<geoip2::City>(request_ip) {
+            Ok(country) => {
+                continent_code = country.continent.and_then(|c| c.code).unwrap_or("");
+                country_code = country.country.and_then(|c| c.iso_code).unwrap_or("");
+            },
+            Err(_) => { }
+        };
 
         // create zone records
         let records: Vec<Record> = self
